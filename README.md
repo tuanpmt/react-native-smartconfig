@@ -1,21 +1,22 @@
+[TOC]
 
-== Getting started
-=== Description
+## Description
 
 This is link:https://github.com/facebook/react-native[react-native] wrapper for link:https://github.com/EspressifApp[ESP8266 ESPTOUCH Smart config]
 
-=== Featues
+## Featues
 * Support both IOS and Android
 * React Native Promise support
 * Fast way to do configure wifi network for IOT device
 
-=== Mostly automatic install
+## Getting started
+### Mostly automatic install
 1. `npm install rnpm --global`
 2. `npm install react-native-smartconfig@latest --save`
 3. `rnpm link react-native-smartconfig`
 
-=== Manual install
-==== iOS
+### Manual install
+#### iOS
 1. `npm install react-native-smartconfig@latest --save`
 2. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 3. Go to `node_modules` ➜ `react-native-smartconfig` and add `RCTSmartconfig.xcodeproj`
@@ -24,62 +25,57 @@ This is link:https://github.com/facebook/react-native[react-native] wrapper for 
 5. Run your project (`Cmd+R`)
 
 
-==== Android
+#### Android
 
 1. `npm install react-native-smartconfig@latest --save`
 2.  Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
 
-[source, javascript]
-----
+```javascript
 import com.tuanpm.RCTSmartconfig; // import
 
 
 .addPackage(new RCTSmartconfigPackage()) //for older version
 
 new RCTSmartconfigPackage()           // for newest version of react-native
-----
+```
 
 3. Append the following lines to `android/settings.gradle` before `include ':app'`:
 
-[source, java]
-----
+```java
 include ':react-native-smartconfig'
 project(':react-native-smartconfig').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-smartconfig/android')
-----
+```
 
 4. Insert the following lines inside the dependencies block in `android/app/build.gradle`, don't missing `apply plugin:'java'` on top:
 
-[source, java]
-----
-
+```java
 compile project(':react-native-smartconfig')
-----
+```
 
 Notes:
-[source, java]
-----
+
+```java
 dependencies {
   compile project(':react-native-smartconfig')
 }
-----
+```
 
 [WARNING]
 But not like this
-[source, java]
-----
+
+```java
 buildscript {
     ...
     dependencies {
       compile project(':react-native-smartconfig')
     }
 }
-----
+```
 
-== Usage
+## Usage
 
 * Normal
-[source, javascript]
-----
+```javascript
 var Smartconfig = require('react-native').NativeModules.Smartconfig;
 Smartconfig.start({
   type: 'esptouch', //or airkiss, now doesn't not effect
@@ -106,15 +102,15 @@ Smartconfig.start({
 };
 
 Smartconfig.stop(); //interrupt task
-----
+```
 
-=== Todo
+## Todo
 
 * [ ] Support automatic get current wifi network ssid
 * [ ] Set timeout effect
 * [ ] Support airkiss
 
-=== LICENSE
+## LICENSE
 
 ```
   The MIT License (MIT)
