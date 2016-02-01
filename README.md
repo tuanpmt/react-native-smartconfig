@@ -2,7 +2,7 @@
 
 ## Description
 
-This is [https://github.com/facebook/react-native](react-native) wrapper for [https://github.com/EspressifApp](ESP8266 ESPTOUCH Smart config)
+[react-native](https://github.com/facebook/react-native) module for [ESP8266 ESPTOUCH Smart config](https://github.com/EspressifApp)
 
 ## Featues
 * Support both IOS and Android
