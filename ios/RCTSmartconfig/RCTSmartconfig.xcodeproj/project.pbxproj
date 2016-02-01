@@ -1,0 +1,332 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35141C5DD1E300ED832B /* Smartconfig.m */; };
+		FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */; };
+		FFFA35501C5E01B800ED832B /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35351C5E01B800ED832B /* ESP_CRC8.m */; };
+		FFFA35511C5E01B800ED832B /* ESP_NetUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35371C5E01B800ED832B /* ESP_NetUtil.m */; };
+		FFFA35531C5E01B800ED832B /* ESPDataCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA353B1C5E01B800ED832B /* ESPDataCode.m */; };
+		FFFA35541C5E01B800ED832B /* ESPDatumCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA353D1C5E01B800ED832B /* ESPDatumCode.m */; };
+		FFFA35551C5E01B800ED832B /* ESPGuideCode.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA353F1C5E01B800ED832B /* ESPGuideCode.m */; };
+		FFFA35561C5E01B800ED832B /* ESPTouchGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35421C5E01B800ED832B /* ESPTouchGenerator.m */; };
+		FFFA35571C5E01B800ED832B /* ESPTouchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35441C5E01B800ED832B /* ESPTouchResult.m */; };
+		FFFA35581C5E01B800ED832B /* ESPTouchTask.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35461C5E01B800ED832B /* ESPTouchTask.m */; };
+		FFFA35591C5E01B800ED832B /* ESPTouchTaskParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */; };
+		FFFA355A1C5E01B800ED832B /* ESPUDPSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */; };
+		FFFA355B1C5E01B800ED832B /* ESPUDPSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */; };
+		FFFA355C1C5E01B800ED832B /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354D1C5E01B800ED832B /* IPAddress.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FFFA34DA1C5D210D00ED832B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTSmartconfig.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFFA35131C5DD1E300ED832B /* Smartconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smartconfig.h; sourceTree = "<group>"; };
+		FFFA35141C5DD1E300ED832B /* Smartconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Smartconfig.m; sourceTree = "<group>"; };
+		FFFA35321C5E01B800ED832B /* ESP_ByteUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_ByteUtil.h; sourceTree = "<group>"; };
+		FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_ByteUtil.m; sourceTree = "<group>"; };
+		FFFA35341C5E01B800ED832B /* ESP_CRC8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_CRC8.h; sourceTree = "<group>"; };
+		FFFA35351C5E01B800ED832B /* ESP_CRC8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_CRC8.m; sourceTree = "<group>"; };
+		FFFA35361C5E01B800ED832B /* ESP_NetUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_NetUtil.h; sourceTree = "<group>"; };
+		FFFA35371C5E01B800ED832B /* ESP_NetUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_NetUtil.m; sourceTree = "<group>"; };
+		FFFA353A1C5E01B800ED832B /* ESPDataCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPDataCode.h; sourceTree = "<group>"; };
+		FFFA353B1C5E01B800ED832B /* ESPDataCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPDataCode.m; sourceTree = "<group>"; };
+		FFFA353C1C5E01B800ED832B /* ESPDatumCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPDatumCode.h; sourceTree = "<group>"; };
+		FFFA353D1C5E01B800ED832B /* ESPDatumCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPDatumCode.m; sourceTree = "<group>"; };
+		FFFA353E1C5E01B800ED832B /* ESPGuideCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPGuideCode.h; sourceTree = "<group>"; };
+		FFFA353F1C5E01B800ED832B /* ESPGuideCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPGuideCode.m; sourceTree = "<group>"; };
+		FFFA35401C5E01B800ED832B /* ESPTouchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchDelegate.h; sourceTree = "<group>"; };
+		FFFA35411C5E01B800ED832B /* ESPTouchGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchGenerator.h; sourceTree = "<group>"; };
+		FFFA35421C5E01B800ED832B /* ESPTouchGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchGenerator.m; sourceTree = "<group>"; };
+		FFFA35431C5E01B800ED832B /* ESPTouchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchResult.h; sourceTree = "<group>"; };
+		FFFA35441C5E01B800ED832B /* ESPTouchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchResult.m; sourceTree = "<group>"; };
+		FFFA35451C5E01B800ED832B /* ESPTouchTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchTask.h; sourceTree = "<group>"; };
+		FFFA35461C5E01B800ED832B /* ESPTouchTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchTask.m; sourceTree = "<group>"; };
+		FFFA35471C5E01B800ED832B /* ESPTouchTaskParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPTouchTaskParameter.h; sourceTree = "<group>"; };
+		FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPTouchTaskParameter.m; sourceTree = "<group>"; };
+		FFFA35491C5E01B800ED832B /* ESPUDPSocketClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPUDPSocketClient.h; sourceTree = "<group>"; };
+		FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketClient.m; sourceTree = "<group>"; };
+		FFFA354B1C5E01B800ED832B /* ESPUDPSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPUDPSocketServer.h; sourceTree = "<group>"; };
+		FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketServer.m; sourceTree = "<group>"; };
+		FFFA354D1C5E01B800ED832B /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		FFFA354E1C5E01B800ED832B /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFFA34D91C5D210D00ED832B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFFA34D31C5D210D00ED832B = {
+			isa = PBXGroup;
+			children = (
+				FFFA35321C5E01B800ED832B /* ESP_ByteUtil.h */,
+				FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */,
+				FFFA35341C5E01B800ED832B /* ESP_CRC8.h */,
+				FFFA35351C5E01B800ED832B /* ESP_CRC8.m */,
+				FFFA35361C5E01B800ED832B /* ESP_NetUtil.h */,
+				FFFA35371C5E01B800ED832B /* ESP_NetUtil.m */,
+				FFFA353A1C5E01B800ED832B /* ESPDataCode.h */,
+				FFFA353B1C5E01B800ED832B /* ESPDataCode.m */,
+				FFFA353C1C5E01B800ED832B /* ESPDatumCode.h */,
+				FFFA353D1C5E01B800ED832B /* ESPDatumCode.m */,
+				FFFA353E1C5E01B800ED832B /* ESPGuideCode.h */,
+				FFFA353F1C5E01B800ED832B /* ESPGuideCode.m */,
+				FFFA35401C5E01B800ED832B /* ESPTouchDelegate.h */,
+				FFFA35411C5E01B800ED832B /* ESPTouchGenerator.h */,
+				FFFA35421C5E01B800ED832B /* ESPTouchGenerator.m */,
+				FFFA35431C5E01B800ED832B /* ESPTouchResult.h */,
+				FFFA35441C5E01B800ED832B /* ESPTouchResult.m */,
+				FFFA35451C5E01B800ED832B /* ESPTouchTask.h */,
+				FFFA35461C5E01B800ED832B /* ESPTouchTask.m */,
+				FFFA35471C5E01B800ED832B /* ESPTouchTaskParameter.h */,
+				FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */,
+				FFFA35491C5E01B800ED832B /* ESPUDPSocketClient.h */,
+				FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */,
+				FFFA354B1C5E01B800ED832B /* ESPUDPSocketServer.h */,
+				FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */,
+				FFFA354D1C5E01B800ED832B /* IPAddress.c */,
+				FFFA354E1C5E01B800ED832B /* IPAddress.h */,
+				FFFA35131C5DD1E300ED832B /* Smartconfig.h */,
+				FFFA35141C5DD1E300ED832B /* Smartconfig.m */,
+				FFFA34DD1C5D210D00ED832B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFFA34DD1C5D210D00ED832B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFFA34DB1C5D210D00ED832B /* RCTSmartconfig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFFA34E51C5D210D00ED832B /* Build configuration list for PBXNativeTarget "RCTSmartconfig" */;
+			buildPhases = (
+				FFFA34D81C5D210D00ED832B /* Sources */,
+				FFFA34D91C5D210D00ED832B /* Frameworks */,
+				FFFA34DA1C5D210D00ED832B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCTSmartconfig;
+			productName = RCTSmartconfig;
+			productReference = FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFFA34D41C5D210D00ED832B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Tuan PM";
+				TargetAttributes = {
+					FFFA34DB1C5D210D00ED832B = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = FFFA34D71C5D210D00ED832B /* Build configuration list for PBXProject "RCTSmartconfig" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FFFA34D31C5D210D00ED832B;
+			productRefGroup = FFFA34DD1C5D210D00ED832B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFFA34DB1C5D210D00ED832B /* RCTSmartconfig */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFFA34D81C5D210D00ED832B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFFA35511C5E01B800ED832B /* ESP_NetUtil.m in Sources */,
+				FFFA35531C5E01B800ED832B /* ESPDataCode.m in Sources */,
+				FFFA35551C5E01B800ED832B /* ESPGuideCode.m in Sources */,
+				FFFA35541C5E01B800ED832B /* ESPDatumCode.m in Sources */,
+				FFFA355A1C5E01B800ED832B /* ESPUDPSocketClient.m in Sources */,
+				FFFA35591C5E01B800ED832B /* ESPTouchTaskParameter.m in Sources */,
+				FFFA35581C5E01B800ED832B /* ESPTouchTask.m in Sources */,
+				FFFA35561C5E01B800ED832B /* ESPTouchGenerator.m in Sources */,
+				FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */,
+				FFFA355B1C5E01B800ED832B /* ESPUDPSocketServer.m in Sources */,
+				FFFA355C1C5E01B800ED832B /* IPAddress.c in Sources */,
+				FFFA35501C5E01B800ED832B /* ESP_CRC8.m in Sources */,
+				FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */,
+				FFFA35571C5E01B800ED832B /* ESPTouchResult.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FFFA34E31C5D210D00ED832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FFFA34E41C5D210D00ED832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FFFA34E61C5D210D00ED832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/../../../react-native/React/**",
+					"$(SRCROOT)/Smartconfig",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FFFA34E71C5D210D00ED832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/../../../react-native/React/**",
+					"$(SRCROOT)/Smartconfig",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFFA34D71C5D210D00ED832B /* Build configuration list for PBXProject "RCTSmartconfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFFA34E31C5D210D00ED832B /* Debug */,
+				FFFA34E41C5D210D00ED832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFFA34E51C5D210D00ED832B /* Build configuration list for PBXNativeTarget "RCTSmartconfig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFFA34E61C5D210D00ED832B /* Debug */,
+				FFFA34E71C5D210D00ED832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFFA34D41C5D210D00ED832B /* Project object */;
+}
