@@ -1,8 +1,8 @@
-[TOC]
+
 
 ## Description
 
-This is link:https://github.com/facebook/react-native[react-native] wrapper for link:https://github.com/EspressifApp[ESP8266 ESPTOUCH Smart config]
+This is [https://github.com/facebook/react-native](react-native) wrapper for [https://github.com/EspressifApp](ESP8266 ESPTOUCH Smart config)
 
 ## Featues
 * Support both IOS and Android
@@ -17,18 +17,18 @@ This is link:https://github.com/facebook/react-native[react-native] wrapper for 
 
 ### Manual install
 #### iOS
-1. `npm install react-native-smartconfig@latest --save`
-2. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-smartconfig` and add `RCTSmartconfig.xcodeproj`
-4. In XCode, in the project navigator, select your project. Add `libRCTSmartconfig.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-5. Click `RCTSmartconfig.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). In the `Search Paths` section, look for `Header Search Paths` and make sure it contains both `$(SRCROOT)/../../react-native/React` - mark  as `recursive`.
-5. Run your project (`Cmd+R`)
+- `npm install react-native-smartconfig@latest --save`
+-  In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+- Go to `node_modules` ➜ `react-native-smartconfig` and add `RCTSmartconfig.xcodeproj`
+- In XCode, in the project navigator, select your project. Add `libRCTSmartconfig.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+- Click `RCTSmartconfig.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). In the `Search Paths` section, look for `Header Search Paths` and make sure it contains both `$(SRCROOT)/../../react-native/React` - mark  as `recursive`.
+- Run your project (`Cmd+R`)
 
 
 #### Android
 
-1. `npm install react-native-smartconfig@latest --save`
-2.  Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
+-  `npm install react-native-smartconfig@latest --save`
+-   Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
 
 ```javascript
 import com.tuanpm.RCTSmartconfig; // import
@@ -39,14 +39,14 @@ import com.tuanpm.RCTSmartconfig; // import
 new RCTSmartconfigPackage()           // for newest version of react-native
 ```
 
-3. Append the following lines to `android/settings.gradle` before `include ':app'`:
+-  Append the following lines to `android/settings.gradle` before `include ':app'`:
 
 ```java
 include ':react-native-smartconfig'
 project(':react-native-smartconfig').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-smartconfig/android')
 ```
 
-4. Insert the following lines inside the dependencies block in `android/app/build.gradle`, don't missing `apply plugin:'java'` on top:
+- Insert the following lines inside the dependencies block in `android/app/build.gradle`, don't missing `apply plugin:'java'` on top:
 
 ```java
 compile project(':react-native-smartconfig')
@@ -74,7 +74,6 @@ buildscript {
 
 ## Usage
 
-* Normal
 ```javascript
 var Smartconfig = require('react-native').NativeModules.Smartconfig;
 Smartconfig.start({
