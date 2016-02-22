@@ -41,48 +41,39 @@ new RCTSmartconfigPackage()           // for newest version of react-native
 
 -  Append the following lines to `android/settings.gradle` before `include ':app'`:
 
-```java
+```
 include ':react-native-smartconfig'
 project(':react-native-smartconfig').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-smartconfig/android')
 ```
 
-- Insert the following lines inside the dependencies block in `android/app/build.gradle`, don't missing `apply plugin:'java'` on top:
+- Insert the following lines inside the dependencies block in `android/app/build.gradle`, dont missing `apply plugin:'java'` on top:
 
-```java
+```
 compile project(':react-native-smartconfig')
 ```
 
 Notes:
 
-```java
+```
 dependencies {
   compile project(':react-native-smartconfig')
 }
 ```
 
-[WARNING]
-But not like this
 
-```java
-buildscript {
-    ...
-    dependencies {
-      compile project(':react-native-smartconfig')
-    }
-}
-```
 
 ## Usage
 
 ```javascript
-var Smartconfig = require('react-native').NativeModules.Smartconfig;
+import Smartconfig from 'react-native-smartconfig';
+
 Smartconfig.start({
   type: 'esptouch', //or airkiss, now doesn't not effect
   ssid: 'wifi-network-ssid',
   bssid: 'filter-device', //null if not need to filter
   password: 'wifi-password',
   timeout: 50000 //now doesn't not effect
-}).then(results) {
+}).then(function(results){
   //Array of device success do smartconfig
   console.log(results);
   /*[
@@ -96,9 +87,9 @@ Smartconfig.start({
     },
     ...
   ]*/
-}.catch(error) {
+}).catch(function(error) {
 
-};
+});
 
 Smartconfig.stop(); //interrupt task
 ```
