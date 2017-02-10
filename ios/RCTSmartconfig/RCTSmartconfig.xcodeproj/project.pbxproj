@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF5CEED91E4DE5EC002ADEB9 /* ESP_WifiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */; };
 		FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35141C5DD1E300ED832B /* Smartconfig.m */; };
 		FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */; };
 		FFFA35501C5E01B800ED832B /* ESP_CRC8.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35351C5E01B800ED832B /* ESP_CRC8.m */; };
@@ -36,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_WifiUtil.h; sourceTree = "<group>"; };
+		FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_WifiUtil.m; sourceTree = "<group>"; };
 		FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTSmartconfig.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFA35131C5DD1E300ED832B /* Smartconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smartconfig.h; sourceTree = "<group>"; };
 		FFFA35141C5DD1E300ED832B /* Smartconfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Smartconfig.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 		FFFA34D31C5D210D00ED832B = {
 			isa = PBXGroup;
 			children = (
+				FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */,
+				FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */,
 				FFFA35321C5E01B800ED832B /* ESP_ByteUtil.h */,
 				FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */,
 				FFFA35341C5E01B800ED832B /* ESP_CRC8.h */,
@@ -187,6 +192,7 @@
 				FFFA35591C5E01B800ED832B /* ESPTouchTaskParameter.m in Sources */,
 				FFFA35581C5E01B800ED832B /* ESPTouchTask.m in Sources */,
 				FFFA35561C5E01B800ED832B /* ESPTouchGenerator.m in Sources */,
+				FF5CEED91E4DE5EC002ADEB9 /* ESP_WifiUtil.m in Sources */,
 				FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */,
 				FFFA355B1C5E01B800ED832B /* ESPUDPSocketServer.m in Sources */,
 				FFFA355C1C5E01B800ED832B /* IPAddress.c in Sources */,

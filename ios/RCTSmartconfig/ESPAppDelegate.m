@@ -7,7 +7,7 @@
 //
 
 #import "ESPAppDelegate.h"
-
+#import "ESPViewController.h"
 #import "ESP_NetUtil.h"
 
 #import <SystemConfiguration/CaptiveNetwork.h>
@@ -17,6 +17,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [ESP_NetUtil tryOpenNetworkPermission];
     return YES;
 }
 							

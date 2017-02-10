@@ -70,7 +70,7 @@ import Smartconfig from 'react-native-smartconfig';
 Smartconfig.start({
   type: 'esptouch', //or airkiss, now doesn't not effect
   ssid: 'wifi-network-ssid',
-  bssid: 'filter-device', //null if not need to filter
+  bssid: 'filter-device', //"" if not need to filter (don't use null)
   password: 'wifi-password',
   timeout: 50000 //now doesn't not effect
 }).then(function(results){
