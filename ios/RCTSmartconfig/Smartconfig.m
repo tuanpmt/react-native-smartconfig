@@ -35,6 +35,8 @@
 @property (nonatomic, strong) NSCondition *_condition;
 
 @property (atomic, strong) ESPTouchTask *_esptouchTask;
+@property (retain, atomic) NSData *freeData;
+@property ( nonatomic) FirstTimeConfig *firstTimeConfig;
 @end
 
 
@@ -132,7 +134,7 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
 
 
     @try {
-        [self disconnectFromLibrary];
+        // [self disconnectFromLibrary];
         NSString *ssid = [self.options valueForKey:@"ssid"];
         NSString *password = [self.options valueForKey:@"password"];
         // NSString *bssid = [self.options valueForKey:@"bssid"];

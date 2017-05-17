@@ -16,3 +16,6 @@
 #import "ESP_NetUtil.h"
 #import "ESPTouchDelegate.h"
 #import "FirstTimeConfig.h"
+
+// @property (retain, atomic) NSData *freeData;
+// @property ( nonatomic) FirstTimeConfig *firstTimeConfig;
