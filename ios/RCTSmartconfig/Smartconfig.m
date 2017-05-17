@@ -63,7 +63,7 @@ RCT_EXPORT_MODULE();
     return self;
 }
 RCT_EXPORT_METHOD(stop) {
-    if ([self.options valueForKey:@"type"] == "esptouch") {
+    if (strcmp([self.options valueForKey:@"type"], "esptouch") == 0) {
         [self cancel];
     }else{
         [self stopDiscovery];
@@ -79,7 +79,7 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
     for (NSString *key in options.keyEnumerator) { // Replace default options
         [self.options setValue:options[key] forKey:key];
     }
-    if([self.options valueForKey:@"type"] == "esptouch")
+    if (strcmp([self.options valueForKey:@"type"], "esptouch") == 0)
     {
         dispatch_queue_t  queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
         dispatch_async(queue, ^{
