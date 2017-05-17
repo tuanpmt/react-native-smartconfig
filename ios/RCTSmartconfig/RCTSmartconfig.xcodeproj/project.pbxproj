@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEC19A641ECC271100F40D26 /* libFirstTimeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC19A601ECC271100F40D26 /* libFirstTimeConfig.a */; };
 		FF5CEED91E4DE5EC002ADEB9 /* ESP_WifiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */; };
 		FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35141C5DD1E300ED832B /* Smartconfig.m */; };
 		FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */; };
@@ -37,6 +38,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CEC19A5B1ECC271100F40D26 /* FirstTimeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTimeConfig.h; sourceTree = "<group>"; };
+		CEC19A5C1ECC271100F40D26 /* FTC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTC-Prefix.pch"; sourceTree = "<group>"; };
+		CEC19A5D1ECC271100F40D26 /* FTC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FTC.plist; sourceTree = "<group>"; };
+		CEC19A5E1ECC271100F40D26 /* Ftc20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ftc20.h; sourceTree = "<group>"; };
+		CEC19A5F1ECC271100F40D26 /* FtcEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FtcEncode.h; sourceTree = "<group>"; };
+		CEC19A601ECC271100F40D26 /* libFirstTimeConfig.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFirstTimeConfig.a; sourceTree = "<group>"; };
+		CEC19A611ECC271100F40D26 /* NetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkHelper.h; sourceTree = "<group>"; };
+		CEC19A621ECC271100F40D26 /* NSData+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AESCrypt.h"; sourceTree = "<group>"; };
+		CEC19A631ECC271100F40D26 /* NSString+AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AESCrypt.h"; sourceTree = "<group>"; };
 		FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_WifiUtil.h; sourceTree = "<group>"; };
 		FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_WifiUtil.m; sourceTree = "<group>"; };
 		FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTSmartconfig.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC19A641ECC271100F40D26 /* libFirstTimeConfig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +115,15 @@
 				FFFA35421C5E01B800ED832B /* ESPTouchGenerator.m */,
 				FFFA35431C5E01B800ED832B /* ESPTouchResult.h */,
 				FFFA35441C5E01B800ED832B /* ESPTouchResult.m */,
+				CEC19A5B1ECC271100F40D26 /* FirstTimeConfig.h */,
+				CEC19A5C1ECC271100F40D26 /* FTC-Prefix.pch */,
+				CEC19A5D1ECC271100F40D26 /* FTC.plist */,
+				CEC19A5E1ECC271100F40D26 /* Ftc20.h */,
+				CEC19A5F1ECC271100F40D26 /* FtcEncode.h */,
+				CEC19A601ECC271100F40D26 /* libFirstTimeConfig.a */,
+				CEC19A611ECC271100F40D26 /* NetworkHelper.h */,
+				CEC19A621ECC271100F40D26 /* NSData+AESCrypt.h */,
+				CEC19A631ECC271100F40D26 /* NSString+AESCrypt.h */,
 				FFFA35451C5E01B800ED832B /* ESPTouchTask.h */,
 				FFFA35461C5E01B800ED832B /* ESPTouchTask.m */,
 				FFFA35471C5E01B800ED832B /* ESPTouchTaskParameter.h */,
@@ -159,6 +179,7 @@
 				TargetAttributes = {
 					FFFA34DB1C5D210D00ED832B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2LJMUQHMWC;
 					};
 				};
 			};
@@ -292,6 +313,10 @@
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/Smartconfig",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -304,6 +329,10 @@
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(SRCROOT)/../../../react-native/React/**",
 					"$(SRCROOT)/Smartconfig",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
