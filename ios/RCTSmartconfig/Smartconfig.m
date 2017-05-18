@@ -179,7 +179,7 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
     @catch (NSException *exception) {
         NSLog(@"%s exception == %@",__FUNCTION__,[exception description]);
         // [self performSelectorOnMainThread:@selector(alertWithMessage:) withObject:[exception description] waitUntilDone:NO];
-        [self stopDiscovery]
+        [self stopDiscovery];
     }
     @finally {
     }
