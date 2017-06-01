@@ -31,8 +31,9 @@
 -   Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
 
 ```javascript
-import com.tuanpm.RCTSmartconfig; // import
+import com.tuanpm.RCTSmartconfig; // import for older version
 
+import com.tuanpm.RCTSmartconfig.RCTSmartconfigPackage; // import for newest version of react-native
 
 .addPackage(new RCTSmartconfigPackage()) //for older version
 
