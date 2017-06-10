@@ -28,13 +28,16 @@
 #### Android
 
 -  `npm install react-native-smartconfig@latest --save`
--   Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
+-  For older version.  Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainActivity.java` to include:
 
 ```javascript
-import com.tuanpm.RCTSmartconfig; // import
-
+import com.tuanpm.RCTSmartconfig; // import for older version
 
 .addPackage(new RCTSmartconfigPackage()) //for older version
+```
+-  For newest version.  Modify the ReactInstanceManager.builder() calls chain in `android/app/main/java/.../MainApplication.java` to include:
+```javascript
+import com.tuanpm.RCTSmartconfig.RCTSmartconfigPackage; // import for newest version of react-native
 
 new RCTSmartconfigPackage()           // for newest version of react-native
 ```
