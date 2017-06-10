@@ -29,6 +29,11 @@ repositories {
   mavenCentral()
 }
 
+smartconfiglib.jar
+
 dependencies {
   compile "com.facebook.react:react-native:0.19.+"
+  compile files('libs/jmdns-3.4.2-r353-1.jar')
+  compile files('libs/android-support-v4.jar')
+  compile files('libs/smartconfiglib.jar')
 }
