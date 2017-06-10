@@ -29,6 +29,13 @@ import com.espressif.iot.esptouch.IEsptouchListener;
 import com.espressif.iot.esptouch.IEsptouchResult;
 import com.espressif.iot.esptouch.IEsptouchTask;
 import com.espressif.iot.esptouch.task.__IEsptouchTask;
+import com.integrity_project.smartconfiglib.SmartConfig;
+import com.integrity_project.smartconfiglib.SmartConfigListener;
+import com.tuanpm.RCTSmartconfig.UdpReceive.ConfigSuccessListener;
+import com.tuanpm.RCTSmartconfig.utils.MDnsCallbackInterface;
+import com.tuanpm.RCTSmartconfig.utils.MDnsHelper;
+import com.tuanpm.RCTSmartconfig.utils.NetworkUtil;
+import com.tuanpm.RCTSmartconfig.utils.SmartConfigConstants;
 
 public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
 
@@ -50,58 +57,141 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void stop() {
-      if (mEsptouchTask != null) {
-        Log.d(TAG, "cancel task");
-        mEsptouchTask.interrupt();
-      }
+    public void stop(type) {
+        if (type == "cc3000"){
+            this.stopCC3000()
+        }else{
+            if (mEsptouchTask != null) {
+                Log.d(TAG, "cancel task");
+                mEsptouchTask.interrupt();
+            }
+        }
+
     }
 
     @ReactMethod
     public void start(final ReadableMap options, final Promise promise) {
-      String ssid = options.getString("ssid");
-      String pass = options.getString("password");
-      Boolean hidden = false;
-      //Int taskResultCountStr = 1;
-      Log.d(TAG, "ssid " + ssid + ":pass " + pass);
-      stop();
-      new EsptouchAsyncTask(new TaskListener() {
-        @Override
-        public void onFinished(List<IEsptouchResult> result) {
-            // Do Something after the task has finished
-
-            WritableArray ret = Arguments.createArray();
-
-            Boolean resolved = false;
-            for (IEsptouchResult resultInList : result) {
-              if(!resultInList.isCancelled() &&resultInList.getBssid() != null) {
-                WritableMap map = Arguments.createMap();
-                map.putString("bssid", resultInList.getBssid());
-                map.putString("ipv4", resultInList.getInetAddress().getHostAddress());
-                ret.pushMap(map);
-                resolved = true;
-                if (!resultInList.isSuc())
-                  break;
-
-              }
-            }
-
-            if(resolved) {
-              Log.d(TAG, "Success run smartconfig");
-              promise.resolve(ret);
-            } else {
-              Log.d(TAG, "Error run smartconfig");
-              promise.reject("new IllegalViewOperationException()");
-            }
-
+        String type = options.getString("type");
+        String pass = options.getString("password");
+        if (type == "cc3000"){
+            return this.startCC3000(options, promise);
+        }else{
+            return this.startEsptouch(options, promise);
         }
-      }).execute(ssid, new String(""), pass, "YES", "1");
-      //promise.resolve(encoded);
-      //promise.reject("Error creating media file.");
-      //
-      //Toast.makeText(getReactApplicationContext(), ssid + ":" + pass, 10).show();
+
+    }
+    private void stopConfig() {
+        btn.setText(getString(R.string.canceling));
+        btn.setEnabled(false);
+        if(udpReceive != null){
+            udpReceive.stopReceive();
+            udpReceive = null;
+        }
+        new Thread() {
+            public void run() {
+                try {
+                    smartConfig.stopTransmitting();
+                    mDnsHelper.stopDiscovery();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+
+    }
+    private void startCC3000(final ReadableMap options, final Promise promise) {
+        this.startCC3000SmartConfig(options);
+    }
+    private void stopCC3000() {
+        new Thread() {
+            public void run() {
+                try {
+                    smartConfig.stopTransmitting();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+    private void startCC3000SmartConfig(options) {
+        String passwordKey = options.getString("password").trim();
+        byte[] paddedEncryptionKey;
+        String SSID = options.getString("ssid").trim();
+        String gateway = NetworkUtil.getGateway(this);
+        paddedEncryptionKey = null;
+
+        freeData = new byte[1];
+        freeData[0] = 0x03;
+        smartConfig = null;
+        smartConfigListener = new SmartConfigListener() {
+            @Override
+            public void onSmartConfigEvent(SmtCfgEvent event, Exception e) {
+               System.out.println("onSmartConfigEvent----------->"+event.name()+" toString:"+event.toString());
+            }
+        };
+        try {
+            smartConfig = new SmartConfig(smartConfigListener, freeData,
+                    passwordKey, paddedEncryptionKey, gateway, SSID, (byte) 0,
+                    "");
+            smartConfig.transmitSettings();
+
+            contentTotal = "";
+            deviceCount = 0;
+
+            scanForDevices();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
+    private void startEsptouch(final ReadableMap options, final Promise promise) {
+        String ssid = options.getString("ssid");
+        String pass = options.getString("password");
+        Boolean hidden = false;
+        //Int taskResultCountStr = 1;
+        Log.d(TAG, "ssid " + ssid + ":pass " + pass);
+        stop();
+        new EsptouchAsyncTask(new TaskListener() {
+            @Override
+            public void onFinished(List<IEsptouchResult> result) {
+                // Do Something after the task has finished
+
+                WritableArray ret = Arguments.createArray();
+
+                Boolean resolved = false;
+                for (IEsptouchResult resultInList : result) {
+                    if(!resultInList.isCancelled() &&resultInList.getBssid() != null) {
+                        WritableMap map = Arguments.createMap();
+                        map.putString("bssid", resultInList.getBssid());
+                        map.putString("ipv4", resultInList.getInetAddress().getHostAddress());
+                        ret.pushMap(map);
+                        resolved = true;
+                        if (!resultInList.isSuc())
+                            break;
+
+                    }
+                }
+
+                if(resolved) {
+                    Log.d(TAG, "Success run smartconfig");
+                    promise.resolve(ret);
+                } else {
+                    Log.d(TAG, "Error run smartconfig");
+                    promise.reject("new IllegalViewOperationException()");
+                }
+
+            }
+        }).execute(ssid, new String(""), pass, "YES", "1");
+        //promise.resolve(encoded);
+        //promise.reject("Error creating media file.");
+        //
+        //Toast.makeText(getReactApplicationContext(), ssid + ":" + pass, 10).show();
+    }
 
     public interface TaskListener {
         public void onFinished(List<IEsptouchResult> result);
