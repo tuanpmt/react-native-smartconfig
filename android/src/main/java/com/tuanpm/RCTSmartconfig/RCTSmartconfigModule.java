@@ -93,11 +93,11 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
               promise.resolve(ret);
             } else {
               Log.d(TAG, "Error run smartconfig");
-              promise.reject("new IllegalViewOperationException()");
+              promise.reject("Timeoutout");
             }
             }catch(Exception e){
                Log.d(TAG, "Error, Smartconfig could not complete!");
-               promise.reject("new Exception()", e);
+               promise.reject("Timeoutout", e);
             }
         }
       }).execute(ssid, new String(""), pass,String.valueOf(timeoutMillisecond) ,"YES", "1");

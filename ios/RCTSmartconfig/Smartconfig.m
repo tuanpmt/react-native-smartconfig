@@ -139,11 +139,12 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
     NSString *ssid = [self.options valueForKey:@"ssid"];
     NSString *password = [self.options valueForKey:@"password"];
     NSString *bssid = [self.options valueForKey:@"bssid"];
+    NSInteger timeoutMillisecond = [self.options.valueForKey:@"timeout"];
     BOOL hidden = [self.options valueForKey:@"hidden"];
     
     RCTLogInfo(@"ssid %@ pass %@ bssid %@", ssid, password, bssid);
     self._esptouchTask =
-    [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andIsSsidHiden:hidden];
+    [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andIsSsidHiden:hidden andTimeoutMillisecond:timeoutMillisecond];
     // set delegate
     [self._esptouchTask setEsptouchDelegate:self._esptouchDelegate];
     [self._condition unlock];
