@@ -61,6 +61,7 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
     public void start(final ReadableMap options, final Promise promise) {
       String ssid = options.getString("ssid");
       String pass = options.getString("password");
+      int timeoutMillisecond=options.getInt("timeout");
       Boolean hidden = false;
       //Int taskResultCountStr = 1;
       Log.d(TAG, "ssid " + ssid + ":pass " + pass);
@@ -73,6 +74,7 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
             WritableArray ret = Arguments.createArray();
 
             Boolean resolved = false;
+            try{
             for (IEsptouchResult resultInList : result) {
               if(!resultInList.isCancelled() &&resultInList.getBssid() != null) {
                 WritableMap map = Arguments.createMap();
@@ -93,9 +95,12 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
               Log.d(TAG, "Error run smartconfig");
               promise.reject("new IllegalViewOperationException()");
             }
-
+            }catch(Exception e){
+               Log.d(TAG, "Error, Smartconfig could not complete!");
+               promise.reject("new Exception()", e);
+            }
         }
-      }).execute(ssid, new String(""), pass, "YES", "1");
+      }).execute(ssid, new String(""), pass,String.valueOf(timeoutMillisecond) ,"YES", "1");
       //promise.resolve(encoded);
       //promise.reject("Error creating media file.");
       //
@@ -141,15 +146,17 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
           String apSsid = params[0];
           String apBssid =  params[1];
           String apPassword = params[2];
-          String isSsidHiddenStr = params[3];
-          String taskResultCountStr = params[4];
+          int timeoutMillisecond =  Integer.parseInt(params[3]);
+          String isSsidHiddenStr = params[4];
+          Log.d("Timeout","Timeout:"+timeoutMillisecond);
+          String taskResultCountStr = params[5];
           boolean isSsidHidden = false;
           if (isSsidHiddenStr.equals("YES")) {
             isSsidHidden = true;
           }
           taskResultCount = Integer.parseInt(taskResultCountStr);
           mEsptouchTask = new EsptouchTask(apSsid, apBssid, apPassword,
-              isSsidHidden, getCurrentActivity());
+              isSsidHidden,timeoutMillisecond, getCurrentActivity());
 
           //mEsptouchTask.setEsptouchListener(myListener);
         }
