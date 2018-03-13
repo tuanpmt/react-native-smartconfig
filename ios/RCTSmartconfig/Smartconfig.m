@@ -41,7 +41,7 @@
 
 @implementation Smartconfig
 {
-
+    
     
 }
 
@@ -101,21 +101,21 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
                     [ret addObject: respData];
                     resolved = true;
                     if (![resultInArray isSuc])
-                        break;
+                    break;
                 }
                 
                 
             }
             if(resolved)
-                resolve(ret);
+            resolve(ret);
             else
-                reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@"Timoutout or not Found"));
+            reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@"Timeoutout or not Found"));
             
             
         });
         
     });
-
+    
     
 }
 
@@ -139,12 +139,10 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
     NSString *ssid = [self.options valueForKey:@"ssid"];
     NSString *password = [self.options valueForKey:@"password"];
     NSString *bssid = [self.options valueForKey:@"bssid"];
-    NSInteger timeoutMillisecond = [self.options.valueForKey:@"timeout"];
+    int timeoutMillisecond = [[self.options valueForKey:@"timeout"] intValue];
     BOOL hidden = [self.options valueForKey:@"hidden"];
-    
-    RCTLogInfo(@"ssid %@ pass %@ bssid %@", ssid, password, bssid);
-    self._esptouchTask =
-    [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andIsSsidHiden:hidden andTimeoutMillisecond:timeoutMillisecond];
+    RCTLogInfo(@"ssid %@ pass %@ bssid %@ timeout %d", ssid, password, bssid,timeoutMillisecond);
+    self._esptouchTask = [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andIsSsidHiden:hidden andTimeoutMillisecond:timeoutMillisecond];
     // set delegate
     [self._esptouchTask setEsptouchDelegate:self._esptouchDelegate];
     [self._condition unlock];
@@ -154,3 +152,4 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
 }
 
 @end
+
