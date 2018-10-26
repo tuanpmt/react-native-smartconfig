@@ -62,6 +62,12 @@ RCT_EXPORT_MODULE();
     }
     return self;
 }
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 RCT_EXPORT_METHOD(stop) {
     [self cancel];
 }
