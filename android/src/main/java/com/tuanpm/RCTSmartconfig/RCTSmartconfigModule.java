@@ -61,8 +61,8 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
     public void start(final ReadableMap options, final Promise promise) {
       String ssid = options.getString("ssid");
       String pass = options.getString("password");
-      Boolean hidden = false;
-      //Int taskResultCountStr = 1;
+      // Boolean hidden = false;
+      // Int taskResultCountStr = 1;
       Log.d(TAG, "ssid " + ssid + ":pass " + pass);
       stop();
       new EsptouchAsyncTask(new TaskListener() {
@@ -91,11 +91,11 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
               promise.resolve(ret);
             } else {
               Log.d(TAG, "Error run smartconfig");
-              promise.reject("new IllegalViewOperationException()");
+              promise.reject("", "new IllegalViewOperationException()");
             }
 
         }
-      }).execute(ssid, new String(""), pass, "YES", "1");
+      }).execute(ssid, "", pass, "YES", "1");
       //promise.resolve(encoded);
       //promise.reject("Error creating media file.");
       //
@@ -104,7 +104,7 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
 
 
     public interface TaskListener {
-        public void onFinished(List<IEsptouchResult> result);
+        void onFinished(List<IEsptouchResult> result);
     }
 
     private class EsptouchAsyncTask extends AsyncTask<String, Void, List<IEsptouchResult>> {
@@ -133,6 +133,7 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
       protected void onPreExecute() {
         Log.d(TAG, "Begin task");
       }
+
       @Override
       protected List<IEsptouchResult> doInBackground(String... params) {
         Log.d(TAG, "doing task");
