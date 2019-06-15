@@ -7,7 +7,6 @@ package com.tuanpm.RCTSmartconfig;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 import android.os.AsyncTask;
@@ -103,10 +102,6 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
             }
         }
       }).execute(ssid, bssid, pass, Integer.toString(taskCount));
-      //promise.resolve(encoded);
-      //promise.reject("Error creating media file.");
-      //
-      //Toast.makeText(getReactApplicationContext(), ssid + ":" + pass, 10).show();
     }
 
 
@@ -116,17 +111,12 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
 
     private class EsptouchAsyncTask extends AsyncTask<String, Void, List<IEsptouchResult>> {
 
-      //
-      // public interface TaskListener {
-      //     public void onFinished(List<IEsptouchResult> result);
-      // }
       private final TaskListener taskListener;
 
       public EsptouchAsyncTask(TaskListener listener) {
         // The listener reference is passed in through the constructor
         this.taskListener = listener;
       }
-
 
       // without the lock, if the user tap confirm and cancel quickly enough,
       // the bug will arise. the reason is follows:
@@ -145,12 +135,9 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
         Log.d(TAG, "doing task");
         int taskCount = -1;
         synchronized (mLock) {
-          String apSsidB64 = params[0];
-          byte[] apSsid = Base64.decode(apSsidB64, Base64.DEFAULT);
-          String apBssid64 =  params[1];
-          byte[] apBssid = Base64.decode(apBssid64, Base64.DEFAULT);
-          String apPasswordB64 = params[2];
-          byte[] apPassword = Base64.decode(apPasswordB64, Base64.DEFAULT);
+          byte[] apSsid = params[0].getBytes();
+          byte[] apBssid =  params[1].getBytes();
+          byte[] apPassword = params[2].getBytes();
           Log.d(TAG, apSsid + " | " + apBssid + " | " + apPassword);
           String taskCountStr = params[3]; 
           taskCount = Integer.parseInt(taskCountStr); 

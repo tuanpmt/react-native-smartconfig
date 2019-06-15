@@ -143,27 +143,15 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
 {
     [self cancel];
     [self._condition lock];
-    NSString *base64Ssid = [self.options valueForKey:@"ssid"];
-    NSString *base64Password = [self.options valueForKey:@"password"];
-    NSString *base64Bssid = [self.options valueForKey:@"bssid"];
+    NSString *ssid = [self.options valueForKey:@"ssid"];
+    NSString *password = [self.options valueForKey:@"password"];
+    NSString *bssid = [self.options valueForKey:@"bssid"];
     int timeoutMillisecond = [[self.options valueForKey:@"timeout"] intValue];
     int taskCount = [[self.options valueForKey:@"taskCount"] intValue];
     BOOL broadcast = YES;
     // BOOL hidden = [self.options valueForKey:@"hidden"];
-    
-    RCTLogInfo(@"ssid %@ pass %@ bssid %@ timeout %d", base64Ssid, base64Password, base64Bssid,timeoutMillisecond);
-    
-    // Decode the SSID, BSSID and PASSWORD from B64 to NSString
-    NSData *nsdataSsid = [[NSData alloc] initWithBase64EncodedString:base64Ssid options:0];
-    NSString *ssid = [[NSString alloc] initWithData:nsdataSsid encoding:NSUTF8StringEncoding];
-    
-    NSData *nsdataPassword = [[NSData alloc] initWithBase64EncodedString:base64Password options:0];
-    NSString *password = [[NSString alloc] initWithData:nsdataPassword encoding:NSUTF8StringEncoding];
-    
-    NSData *nsdataBssid = [[NSData alloc] initWithBase64EncodedString:base64Bssid options:0];
-    NSString *bssid = [[NSString alloc] initWithData:nsdataBssid encoding:NSUTF8StringEncoding];
 
-    RCTLogInfo(@"ssid %@ pass %@ bssid %@ timeout %d", ssid, password, bssid,timeoutMillisecond);
+    RCTLogInfo(@"ssid %@ pass %@ bssid %@ timeout %d", ssid, password, bssid, timeoutMillisecond);
     
     self._esptouchTask = [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andTimeoutMillisecond:timeoutMillisecond];
     // set delegate
