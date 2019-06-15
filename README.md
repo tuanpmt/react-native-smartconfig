@@ -75,7 +75,7 @@ Smartconfig.start({
   ssid: 'wifi-network-ssid',
   bssid: 'filter-device', //"" if not need to filter (don't use null)
   password: 'wifi-password',
-  timeout: 50000 //now doesn't not effect
+  timeout: 50000
 }).then(function(results){
   //Array of device success do smartconfig
   console.log(results);
@@ -100,7 +100,6 @@ Smartconfig.stop(); //interrupt task
 ## Todo
 
 * [ ] Support automatic get current wifi network ssid
-* [ ] Set timeout effect
 * [ ] Support airkiss
 
 ## LICENSE
