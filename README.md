@@ -2,7 +2,7 @@
 
 ## Description
 
-[react-native](https://github.com/facebook/react-native) module for [ESP8266 ESPTOUCH Smart config](https://github.com/EspressifApp)
+[react-native](https://github.com/facebook/react-native) module for [ESP8266 ESPTOUCH Smart config v0.3.7.1](https://github.com/EspressifApp)
 
 ## Featues
 * Support both IOS and Android
