@@ -135,9 +135,9 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
         Log.d(TAG, "doing task");
         int taskCount = -1;
         synchronized (mLock) {
-          byte[] apSsid = params[0].getBytes();
-          byte[] apBssid =  params[1].getBytes();
-          byte[] apPassword = params[2].getBytes();
+          String apSsid = params[0];
+          String apBssid =  params[1];
+          String apPassword = params[2];
           Log.d(TAG, apSsid + " | " + apBssid + " | " + apPassword);
           String taskCountStr = params[3]; 
           taskCount = Integer.parseInt(taskCountStr); 
