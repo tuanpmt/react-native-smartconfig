@@ -41,7 +41,7 @@
 
 @implementation Smartconfig
 {
-
+    
     
 }
 
@@ -56,12 +56,19 @@ RCT_EXPORT_MODULE();
                                 @"password": @"password",
                                 @"hidden": @NO,
                                 @"bssid": @"",
-                                @"timeout": @50000
+                                @"timeout": @150000,
+                                @"taskCount": @1
                                 };
         self._esptouchDelegate = [[EspTouchDelegateImpl alloc]init];
     }
     return self;
 }
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 RCT_EXPORT_METHOD(stop) {
     [self cancel];
 }
@@ -101,21 +108,21 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
                     [ret addObject: respData];
                     resolved = true;
                     if (![resultInArray isSuc])
-                        break;
+                    break;
                 }
                 
                 
             }
             if(resolved)
-                resolve(ret);
+            resolve(ret);
             else
-                reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@"Timoutout or not Found"));
+            reject(RCTErrorUnspecified, nil, RCTErrorWithMessage(@"Timeoutout or not Found"));
             
             
         });
         
     });
-
+    
     
 }
 
@@ -139,17 +146,23 @@ RCT_EXPORT_METHOD(start:(NSDictionary *)options
     NSString *ssid = [self.options valueForKey:@"ssid"];
     NSString *password = [self.options valueForKey:@"password"];
     NSString *bssid = [self.options valueForKey:@"bssid"];
-    BOOL hidden = [self.options valueForKey:@"hidden"];
+    int timeoutMillisecond = [[self.options valueForKey:@"timeout"] intValue];
+    int taskCount = [[self.options valueForKey:@"taskCount"] intValue];
+    BOOL broadcast = YES;
+    // BOOL hidden = [self.options valueForKey:@"hidden"];
+
+    RCTLogInfo(@"ssid %@ pass %@ bssid %@ timeout %d", ssid, password, bssid, timeoutMillisecond);
     
-    RCTLogInfo(@"ssid %@ pass %@ bssid %@", ssid, password, bssid);
-    self._esptouchTask =
-    [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andIsSsidHiden:hidden];
+    self._esptouchTask = [[ESPTouchTask alloc]initWithApSsid:ssid andApBssid:bssid andApPwd:password andTimeoutMillisecond:timeoutMillisecond];
     // set delegate
     [self._esptouchTask setEsptouchDelegate:self._esptouchDelegate];
+    [self._esptouchTask setPackageBroadcast:broadcast];
     [self._condition unlock];
-    NSArray * esptouchResults = [self._esptouchTask executeForResults:1];
+    NSArray * esptouchResults = [self._esptouchTask executeForResults:taskCount];
+    NSLog(@"ESPViewController executeForResult() result is: %@",esptouchResults);
     
     return esptouchResults;
 }
 
 @end
+

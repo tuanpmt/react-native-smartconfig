@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07149B0522B3B12C00AD1203 /* ESPAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 07149B0422B3B12C00AD1203 /* ESPAES.m */; };
+		07149B0822B3B13B00AD1203 /* ESPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07149B0722B3B13B00AD1203 /* ESPAppDelegate.m */; };
 		FF5CEED91E4DE5EC002ADEB9 /* ESP_WifiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */; };
 		FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35141C5DD1E300ED832B /* Smartconfig.m */; };
 		FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */; };
@@ -21,7 +23,6 @@
 		FFFA35591C5E01B800ED832B /* ESPTouchTaskParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */; };
 		FFFA355A1C5E01B800ED832B /* ESPUDPSocketClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */; };
 		FFFA355B1C5E01B800ED832B /* ESPUDPSocketServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */; };
-		FFFA355C1C5E01B800ED832B /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = FFFA354D1C5E01B800ED832B /* IPAddress.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07149B0222B3B11A00AD1203 /* ESPVersionMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPVersionMacro.h; sourceTree = "<group>"; };
+		07149B0322B3B12B00AD1203 /* ESPAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPAES.h; sourceTree = "<group>"; };
+		07149B0422B3B12C00AD1203 /* ESPAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPAES.m; sourceTree = "<group>"; };
+		07149B0622B3B13B00AD1203 /* ESPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPAppDelegate.h; sourceTree = "<group>"; };
+		07149B0722B3B13B00AD1203 /* ESPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPAppDelegate.m; sourceTree = "<group>"; };
 		FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESP_WifiUtil.h; sourceTree = "<group>"; };
 		FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESP_WifiUtil.m; sourceTree = "<group>"; };
 		FFFA34DC1C5D210D00ED832B /* libRCTSmartconfig.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTSmartconfig.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,8 +73,6 @@
 		FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketClient.m; sourceTree = "<group>"; };
 		FFFA354B1C5E01B800ED832B /* ESPUDPSocketServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESPUDPSocketServer.h; sourceTree = "<group>"; };
 		FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESPUDPSocketServer.m; sourceTree = "<group>"; };
-		FFFA354D1C5E01B800ED832B /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
-		FFFA354E1C5E01B800ED832B /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,38 +86,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FFFA34D31C5D210D00ED832B = {
+		0728C71322B39AB8005375E1 /* esptouch */ = {
 			isa = PBXGroup;
 			children = (
-				FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */,
-				FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */,
-				FFFA35321C5E01B800ED832B /* ESP_ByteUtil.h */,
-				FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */,
-				FFFA35341C5E01B800ED832B /* ESP_CRC8.h */,
-				FFFA35351C5E01B800ED832B /* ESP_CRC8.m */,
-				FFFA35361C5E01B800ED832B /* ESP_NetUtil.h */,
-				FFFA35371C5E01B800ED832B /* ESP_NetUtil.m */,
-				FFFA353A1C5E01B800ED832B /* ESPDataCode.h */,
+				FFFA35451C5E01B800ED832B /* ESPTouchTask.h */,
+				FFFA35431C5E01B800ED832B /* ESPTouchResult.h */,
+				FFFA35401C5E01B800ED832B /* ESPTouchDelegate.h */,
+			);
+			name = esptouch;
+			sourceTree = "<group>";
+		};
+		0728C71422B39B46005375E1 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
 				FFFA353B1C5E01B800ED832B /* ESPDataCode.m */,
+				FFFA353A1C5E01B800ED832B /* ESPDataCode.h */,
 				FFFA353C1C5E01B800ED832B /* ESPDatumCode.h */,
 				FFFA353D1C5E01B800ED832B /* ESPDatumCode.m */,
-				FFFA353E1C5E01B800ED832B /* ESPGuideCode.h */,
-				FFFA353F1C5E01B800ED832B /* ESPGuideCode.m */,
-				FFFA35401C5E01B800ED832B /* ESPTouchDelegate.h */,
 				FFFA35411C5E01B800ED832B /* ESPTouchGenerator.h */,
 				FFFA35421C5E01B800ED832B /* ESPTouchGenerator.m */,
-				FFFA35431C5E01B800ED832B /* ESPTouchResult.h */,
-				FFFA35441C5E01B800ED832B /* ESPTouchResult.m */,
-				FFFA35451C5E01B800ED832B /* ESPTouchTask.h */,
-				FFFA35461C5E01B800ED832B /* ESPTouchTask.m */,
-				FFFA35471C5E01B800ED832B /* ESPTouchTaskParameter.h */,
-				FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */,
+				FFFA353E1C5E01B800ED832B /* ESPGuideCode.h */,
+				FFFA353F1C5E01B800ED832B /* ESPGuideCode.m */,
+			);
+			name = protocol;
+			sourceTree = "<group>";
+		};
+		0728C71522B39B78005375E1 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				07149B0222B3B11A00AD1203 /* ESPVersionMacro.h */,
+				FFFA35341C5E01B800ED832B /* ESP_CRC8.h */,
+				FFFA35351C5E01B800ED832B /* ESP_CRC8.m */,
+				FFFA35321C5E01B800ED832B /* ESP_ByteUtil.h */,
+				FFFA35331C5E01B800ED832B /* ESP_ByteUtil.m */,
+				FFFA35361C5E01B800ED832B /* ESP_NetUtil.h */,
+				FFFA35371C5E01B800ED832B /* ESP_NetUtil.m */,
+				FF5CEED71E4DE5EC002ADEB9 /* ESP_WifiUtil.h */,
+				FF5CEED81E4DE5EC002ADEB9 /* ESP_WifiUtil.m */,
+				07149B0322B3B12B00AD1203 /* ESPAES.h */,
+				07149B0422B3B12C00AD1203 /* ESPAES.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		0728C71622B39BA7005375E1 /* udp */ = {
+			isa = PBXGroup;
+			children = (
 				FFFA35491C5E01B800ED832B /* ESPUDPSocketClient.h */,
 				FFFA354A1C5E01B800ED832B /* ESPUDPSocketClient.m */,
 				FFFA354B1C5E01B800ED832B /* ESPUDPSocketServer.h */,
 				FFFA354C1C5E01B800ED832B /* ESPUDPSocketServer.m */,
-				FFFA354D1C5E01B800ED832B /* IPAddress.c */,
-				FFFA354E1C5E01B800ED832B /* IPAddress.h */,
+			);
+			name = udp;
+			sourceTree = "<group>";
+		};
+		0728C71722B39BB6005375E1 /* task */ = {
+			isa = PBXGroup;
+			children = (
+				FFFA35461C5E01B800ED832B /* ESPTouchTask.m */,
+				FFFA35441C5E01B800ED832B /* ESPTouchResult.m */,
+				FFFA35471C5E01B800ED832B /* ESPTouchTaskParameter.h */,
+				FFFA35481C5E01B800ED832B /* ESPTouchTaskParameter.m */,
+			);
+			name = task;
+			sourceTree = "<group>";
+		};
+		FFFA34D31C5D210D00ED832B = {
+			isa = PBXGroup;
+			children = (
+				0728C71322B39AB8005375E1 /* esptouch */,
+				0728C71422B39B46005375E1 /* protocol */,
+				0728C71522B39B78005375E1 /* util */,
+				0728C71722B39BB6005375E1 /* task */,
+				0728C71622B39BA7005375E1 /* udp */,
+				07149B0622B3B13B00AD1203 /* ESPAppDelegate.h */,
+				07149B0722B3B13B00AD1203 /* ESPAppDelegate.m */,
 				FFFA35131C5DD1E300ED832B /* Smartconfig.h */,
 				FFFA35141C5DD1E300ED832B /* Smartconfig.m */,
 				FFFA34DD1C5D210D00ED832B /* Products */,
@@ -191,11 +238,12 @@
 				FFFA355A1C5E01B800ED832B /* ESPUDPSocketClient.m in Sources */,
 				FFFA35591C5E01B800ED832B /* ESPTouchTaskParameter.m in Sources */,
 				FFFA35581C5E01B800ED832B /* ESPTouchTask.m in Sources */,
+				07149B0522B3B12C00AD1203 /* ESPAES.m in Sources */,
 				FFFA35561C5E01B800ED832B /* ESPTouchGenerator.m in Sources */,
 				FF5CEED91E4DE5EC002ADEB9 /* ESP_WifiUtil.m in Sources */,
+				07149B0822B3B13B00AD1203 /* ESPAppDelegate.m in Sources */,
 				FFFA354F1C5E01B800ED832B /* ESP_ByteUtil.m in Sources */,
 				FFFA355B1C5E01B800ED832B /* ESPUDPSocketServer.m in Sources */,
-				FFFA355C1C5E01B800ED832B /* IPAddress.c in Sources */,
 				FFFA35501C5E01B800ED832B /* ESP_CRC8.m in Sources */,
 				FFFA35151C5DD1E300ED832B /* Smartconfig.m in Sources */,
 				FFFA35571C5E01B800ED832B /* ESPTouchResult.m in Sources */,

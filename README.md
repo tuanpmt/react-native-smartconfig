@@ -2,7 +2,7 @@
 
 ## Description
 
-[react-native](https://github.com/facebook/react-native) module for [ESP8266 ESPTOUCH Smart config](https://github.com/EspressifApp)
+[react-native](https://github.com/facebook/react-native) module for [ESP8266 ESPTOUCH Smart config v0.3.7.1](https://github.com/EspressifApp)
 
 ## Featues
 * Support both IOS and Android
@@ -75,7 +75,7 @@ Smartconfig.start({
   ssid: 'wifi-network-ssid',
   bssid: 'filter-device', //"" if not need to filter (don't use null)
   password: 'wifi-password',
-  timeout: 50000 //now doesn't not effect
+  timeout: 50000
 }).then(function(results){
   //Array of device success do smartconfig
   console.log(results);
@@ -100,7 +100,6 @@ Smartconfig.stop(); //interrupt task
 ## Todo
 
 * [ ] Support automatic get current wifi network ssid
-* [ ] Set timeout effect
 * [ ] Support airkiss
 
 ## LICENSE

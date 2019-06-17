@@ -7,7 +7,6 @@ package com.tuanpm.RCTSmartconfig;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 import android.os.AsyncTask;
@@ -24,10 +23,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+
 import com.espressif.iot.esptouch.EsptouchTask;
 import com.espressif.iot.esptouch.IEsptouchListener;
 import com.espressif.iot.esptouch.IEsptouchResult;
 import com.espressif.iot.esptouch.IEsptouchTask;
+import com.espressif.iot.esptouch.util.EspAES;
 import com.espressif.iot.esptouch.task.__IEsptouchTask;
 
 public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
@@ -60,9 +61,10 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void start(final ReadableMap options, final Promise promise) {
       String ssid = options.getString("ssid");
+      String bssid = options.getString("bssid");
       String pass = options.getString("password");
+      int taskCount = options.getInt("taskCount");
       Boolean hidden = false;
-      //Int taskResultCountStr = 1;
       Log.d(TAG, "ssid " + ssid + ":pass " + pass);
       stop();
       new EsptouchAsyncTask(new TaskListener() {
@@ -73,6 +75,7 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
             WritableArray ret = Arguments.createArray();
 
             Boolean resolved = false;
+            try{
             for (IEsptouchResult resultInList : result) {
               if(!resultInList.isCancelled() &&resultInList.getBssid() != null) {
                 WritableMap map = Arguments.createMap();
@@ -91,15 +94,14 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
               promise.resolve(ret);
             } else {
               Log.d(TAG, "Error run smartconfig");
-              promise.reject("new IllegalViewOperationException()");
+              promise.reject("Timeoutout");
             }
-
+            }catch(Exception e){
+               Log.d(TAG, "Error, Smartconfig could not complete!");
+               promise.reject("Timeoutout", e);
+            }
         }
-      }).execute(ssid, new String(""), pass, "YES", "1");
-      //promise.resolve(encoded);
-      //promise.reject("Error creating media file.");
-      //
-      //Toast.makeText(getReactApplicationContext(), ssid + ":" + pass, 10).show();
+      }).execute(ssid, bssid, pass, Integer.toString(taskCount));
     }
 
 
@@ -109,17 +111,12 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
 
     private class EsptouchAsyncTask extends AsyncTask<String, Void, List<IEsptouchResult>> {
 
-      //
-      // public interface TaskListener {
-      //     public void onFinished(List<IEsptouchResult> result);
-      // }
       private final TaskListener taskListener;
 
       public EsptouchAsyncTask(TaskListener listener) {
         // The listener reference is passed in through the constructor
         this.taskListener = listener;
       }
-
 
       // without the lock, if the user tap confirm and cancel quickly enough,
       // the bug will arise. the reason is follows:
@@ -136,24 +133,17 @@ public class RCTSmartconfigModule extends ReactContextBaseJavaModule {
       @Override
       protected List<IEsptouchResult> doInBackground(String... params) {
         Log.d(TAG, "doing task");
-        int taskResultCount = -1;
+        int taskCount = -1;
         synchronized (mLock) {
           String apSsid = params[0];
           String apBssid =  params[1];
           String apPassword = params[2];
-          String isSsidHiddenStr = params[3];
-          String taskResultCountStr = params[4];
-          boolean isSsidHidden = false;
-          if (isSsidHiddenStr.equals("YES")) {
-            isSsidHidden = true;
-          }
-          taskResultCount = Integer.parseInt(taskResultCountStr);
-          mEsptouchTask = new EsptouchTask(apSsid, apBssid, apPassword,
-              isSsidHidden, getCurrentActivity());
-
-          //mEsptouchTask.setEsptouchListener(myListener);
+          Log.d(TAG, apSsid + " | " + apBssid + " | " + apPassword);
+          String taskCountStr = params[3]; 
+          taskCount = Integer.parseInt(taskCountStr); 
+          mEsptouchTask = new EsptouchTask(apSsid, apBssid, apPassword, getCurrentActivity());
         }
-        List<IEsptouchResult> resultList = mEsptouchTask.executeForResults(taskResultCount);
+        List<IEsptouchResult> resultList = mEsptouchTask.executeForResults(taskCount);
         return resultList;
       }
 
